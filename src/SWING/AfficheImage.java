@@ -35,6 +35,7 @@ public class AfficheImage extends Panel {
         int We = (int) dim.getWidth();
         int He = (int) dim.getHeight();
 
+
         int DCw = (int) (DWi/(2560/We));
         int DCh = (int) (DHi/(1440/He));
 

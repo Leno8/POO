@@ -1,6 +1,7 @@
 package SWING;
 
 import java.awt.*;
+import java.awt.Graphics;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
@@ -14,29 +15,31 @@ import net.miginfocom.swing.*;
 /**
  * @author Noe
  */
-public class Fenetre2 extends JFrame {
+public class Fenetre2 extends JFrame{
 
-    private JPanel panel2;
-    private JButton button6;
-    private JButton button7;
-    private JPanel panel3;
-    private JPanel panel1;
-    private int mX,mY;
+    private int mX, mY;
     private boolean isActif;
 
     public Fenetre2() {
         initComponents();
     }
 
-    public void mousePressed(MouseEvent e) {}
-    public void mouseReleased(MouseEvent e) {}
-    public void mouseEntered(MouseEvent e) {}
-    public void mouseExited(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
+
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseExited(MouseEvent e) {
+    }
 
     private void panel1MouseClicked(MouseEvent e) {
 
-        mX = (int)(MouseInfo.getPointerInfo().getLocation().getX());
-        mY = (int)(MouseInfo.getPointerInfo().getLocation().getY());
+        mX = (int) (MouseInfo.getPointerInfo().getLocation().getX());
+        mY = (int) (MouseInfo.getPointerInfo().getLocation().getY());
         System.out.println(mX + "    " + mY);
         isActif = true;
         repaint();
@@ -59,11 +62,13 @@ public class Fenetre2 extends JFrame {
         //======== panel2 ========
         {
             panel2.setBackground(new Color(0, 102, 204));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-            , 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-            panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
+            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing
+            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
+            Font ("D\u0069al\u006fg" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
+            ) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
+            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .equals (e .getPropertyName (
+            ) )) throw new RuntimeException( ); }} );
             panel2.setLayout(new MigLayout(
                 "insets 0,hidemode 3,align center center",
                 // columns
@@ -110,24 +115,23 @@ public class Fenetre2 extends JFrame {
 
         //======== panel1 ========
         {
+            panel1.setBackground(new Color(255, 51, 0));
             panel1.addMouseListener(new MouseAdapter() {
-
+                @Override
                 public void mouseClicked(MouseEvent e) {
                     panel1MouseClicked(e);
                 }
-
-
             });
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGap(0, 741, Short.MAX_VALUE)
+                    .addGap(0, 740, Short.MAX_VALUE)
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGap(0, 578, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
             );
         }
 
@@ -138,7 +142,8 @@ public class Fenetre2 extends JFrame {
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -152,6 +157,7 @@ public class Fenetre2 extends JFrame {
 
     public void paintComponent(Graphics g) {
         super.paintComponents(g);
+        System.out.println("HEHEHHEHEHEHE");
         int w = this.getWidth(),
                 h = this.getWidth(),
                 r = 5,
@@ -162,10 +168,15 @@ public class Fenetre2 extends JFrame {
             g.fillOval(mX - r, mY - r, d, d);
             g.drawLine(w / 2, h / 2, mX, mY);
         }
+    }
 
         // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
         // Generated using JFormDesigner Evaluation license - Noe
-    }
-
+        private JPanel panel2;
+        private JButton button6;
+        private JButton button7;
+        private JPanel panel3;
+        private JPanel panel1;
         // JFormDesigner - End of variables declaration  //GEN-END:variables
+
 }
