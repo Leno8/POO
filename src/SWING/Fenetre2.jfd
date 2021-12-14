@@ -1,0 +1,43 @@
+JFDML JFormDesigner: "7.0.5.0.404" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel2:::p:116:p, space ::747:x}}"
+			"$verticalGroup": "par l {comp panel2::::578:x}"
+		} ) {
+			name: "this"
+			"background": new java.awt.Color( 51, 51, 255, 255 )
+			"resizable": false
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+				"$layoutConstraints": "insets 0,hidemode 3,align center center"
+				"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill]"
+				"$rowConstraints": "[fill][][][][][][][][][][][][][][][]"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 0, 102, 204, 255 )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button6"
+					"text": "Salarie"
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 3 8"
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button7"
+					"text": "Vehicule"
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 3 9"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel3"
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 3 14 4 2"
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 10 )
+			"size": new java.awt.Dimension( 865, 610 )
+		} )
+	}
+}
