@@ -1,11 +1,14 @@
 package SWING;
-
-import java.awt.*;
 import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.*;
 import net.miginfocom.swing.*;
+
 /*
  * Created by JFormDesigner on Tue Dec 14 10:55:17 CET 2021
  */
@@ -17,12 +20,14 @@ import net.miginfocom.swing.*;
  */
 public class Fenetre2 extends JFrame{
 
+    static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     private int mX, mY;
     private boolean isActif;
 
+
     public Fenetre2() {
         initComponents();
-    }
+        }
 
     public void mousePressed(MouseEvent e) {
     }
@@ -36,13 +41,40 @@ public class Fenetre2 extends JFrame{
     public void mouseExited(MouseEvent e) {
     }
 
+
+
+
+
     private void panel1MouseClicked(MouseEvent e) {
+
+        BufferedImage Pin = null;
+        BufferedImage House = null;
 
         mX = (int) (MouseInfo.getPointerInfo().getLocation().getX());
         mY = (int) (MouseInfo.getPointerInfo().getLocation().getY());
-        System.out.println(mX + "    " + mY);
         isActif = true;
-        repaint();
+        try {
+            Pin = ImageIO.read(new File("983013.png"));
+            House = ImageIO.read(new File("Maison.png"));
+        } catch (IOException ie) {
+            ie.printStackTrace();
+        }
+
+        int ptx = mX - (Pin.getWidth()/2);
+        int pty = mY - (Pin.getHeight());
+
+        getGraphics().drawImage(Pin, ptx, pty ,null);
+
+        int htx = dim.width/2 - (House.getWidth()/2);
+        int hty = dim.height/2 + (House.getHeight());
+
+        getGraphics().drawImage(House, htx, hty,null);
+
+        getGraphics().drawLine(ptx+(Pin.getWidth()/2),pty+(Pin.getHeight())/2,htx + (House.getWidth()/2), hty + (House.getHeight())/2);
+
+
+
+
     }
 
     private void initComponents() {
@@ -62,13 +94,13 @@ public class Fenetre2 extends JFrame{
         //======== panel2 ========
         {
             panel2.setBackground(new Color(0, 102, 204));
-            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-            . swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing
-            . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-            Font ("D\u0069al\u006fg" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-            ) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-            public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .equals (e .getPropertyName (
-            ) )) throw new RuntimeException( ); }} );
+            panel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
+            . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing
+            .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
+            Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
+            ) ,panel2. getBorder () ) ); panel2. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
+            public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName (
+            ) ) )throw new RuntimeException( ) ;} } );
             panel2.setLayout(new MigLayout(
                 "insets 0,hidemode 3,align center center",
                 // columns
@@ -115,7 +147,10 @@ public class Fenetre2 extends JFrame{
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(255, 51, 0));
+            panel1.setBackground(Color.white);
+            panel1.setAlignmentX(0.0F);
+            panel1.setAlignmentY(0.0F);
+            panel1.setPreferredSize(new Dimension(1000, 0));
             panel1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -127,7 +162,7 @@ public class Fenetre2 extends JFrame{
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGap(0, 740, Short.MAX_VALUE)
+                    .addGap(0, 735, Short.MAX_VALUE)
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -142,33 +177,19 @@ public class Fenetre2 extends JFrame{
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addComponent(panel2, GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
-                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
         );
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponents(g);
-        System.out.println("HEHEHHEHEHEHE");
-        int w = this.getWidth(),
-                h = this.getWidth(),
-                r = 5,
-                d = r * 2;
-        g.setColor(Color.CYAN);
-        g.fillOval(w / 2 - r, h / 2 - r, d, d);
-        if (isActif) {
-            g.fillOval(mX - r, mY - r, d, d);
-            g.drawLine(w / 2, h / 2, mX, mY);
-        }
-    }
 
         // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
         // Generated using JFormDesigner Evaluation license - Noe

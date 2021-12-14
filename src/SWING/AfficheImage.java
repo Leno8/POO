@@ -10,7 +10,6 @@ public class AfficheImage extends Panel {
 
     private static final long serialVersionUID = 1L;
     private BufferedImage Delivreats, Createdby;
-    private Rectangle Rectangle;
 
     public AfficheImage(String nomImage1, String nomImage2) {
 

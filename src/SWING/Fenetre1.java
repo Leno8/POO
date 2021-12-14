@@ -2,7 +2,6 @@ package SWING;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
@@ -29,7 +28,7 @@ public class Fenetre1 extends JFrame {
         creationImage();
 
         this.setBounds(0,0,w, h);
-        this.setVisible(true);
+
 
     }
 
@@ -68,8 +67,11 @@ public class Fenetre1 extends JFrame {
             {
                 Fenetre2 F2 = new Fenetre2();
                 F2.setBounds(0,0,dim.width,dim.height);
-                F2.setVisible(true);
+
                 app.setVisible(false);
+
+
+                F2.setVisible(true);
             }
         });
 
