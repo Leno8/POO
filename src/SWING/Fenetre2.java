@@ -54,7 +54,7 @@ public class Fenetre2 extends JFrame{
         mY = (int) (MouseInfo.getPointerInfo().getLocation().getY());
         isActif = true;
         try {
-            Pin = ImageIO.read(new File("983013.png"));
+            Pin = ImageIO.read(new File("Pin.png"));
             House = ImageIO.read(new File("Maison.png"));
         } catch (IOException ie) {
             ie.printStackTrace();
@@ -77,14 +77,20 @@ public class Fenetre2 extends JFrame{
 
     }
 
+    private void salarie(ActionEvent e) {
+            TabSalarie tS = new TabSalarie();
+            tS.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Noe
         panel2 = new JPanel();
-        button6 = new JButton();
+        buttonSalarie = new JButton();
         button7 = new JButton();
         panel3 = new JPanel();
         panel1 = new JPanel();
+        panel4 = new JPanel();
 
         //======== this ========
         setBackground(new Color(51, 51, 255));
@@ -94,13 +100,12 @@ public class Fenetre2 extends JFrame{
         //======== panel2 ========
         {
             panel2.setBackground(new Color(0, 102, 204));
-            panel2.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-            . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing
-            .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-            Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-            ) ,panel2. getBorder () ) ); panel2. addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-            public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName (
-            ) ) )throw new RuntimeException( ) ;} } );
+            panel2.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+            ( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+            . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+            . Color. red) ,panel2. getBorder( )) ); panel2. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+            propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+            ; }} );
             panel2.setLayout(new MigLayout(
                 "insets 0,hidemode 3,align center center",
                 // columns
@@ -130,9 +135,10 @@ public class Fenetre2 extends JFrame{
                 "[]" +
                 "[]"));
 
-            //---- button6 ----
-            button6.setText("Salarie");
-            panel2.add(button6, "cell 3 8");
+            //---- buttonSalarie ----
+            buttonSalarie.setText("Salarie");
+            buttonSalarie.addActionListener(e -> salarie(e));
+            panel2.add(buttonSalarie, "cell 3 8");
 
             //---- button7 ----
             button7.setText("Vehicule");
@@ -166,7 +172,24 @@ public class Fenetre2 extends JFrame{
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 316, Short.MAX_VALUE)
+            );
+        }
+
+        //======== panel4 ========
+        {
+            panel4.setBackground(new Color(102, 153, 255));
+            panel4.setPreferredSize(new Dimension(0, 250));
+
+            GroupLayout panel4Layout = new GroupLayout(panel4);
+            panel4.setLayout(panel4Layout);
+            panel4Layout.setHorizontalGroup(
+                panel4Layout.createParallelGroup()
+                    .addGap(0, 735, Short.MAX_VALUE)
+            );
+            panel4Layout.setVerticalGroup(
+                panel4Layout.createParallelGroup()
+                    .addGap(0, 250, Short.MAX_VALUE)
             );
         }
 
@@ -177,13 +200,19 @@ public class Fenetre2 extends JFrame{
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addComponent(panel2, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(panel4, GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                        .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
                     .addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addComponent(panel2, GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
-                .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(panel1, GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -194,10 +223,11 @@ public class Fenetre2 extends JFrame{
         // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
         // Generated using JFormDesigner Evaluation license - Noe
         private JPanel panel2;
-        private JButton button6;
+        private JButton buttonSalarie;
         private JButton button7;
         private JPanel panel3;
         private JPanel panel1;
+        private JPanel panel4;
         // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 }
